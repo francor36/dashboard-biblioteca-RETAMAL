@@ -30,20 +30,46 @@ const agregarLibro = () => {
 </script>
 
 <template>
-  <div class="max-w-md mx-auto">
-    <h2 class="text-xl font-bold mb-4">Agregar nuevo libro</h2>
-    <form @submit.prevent="agregarLibro" class="space-y-4">
-      <input v-model="isb" type="text" placeholder="ISB"
-             class="w-full p-2 border rounded" required />
-      <input v-model="titulo" type="text" placeholder="Título"
-             class="w-full p-2 border rounded" required />
-      <input v-model="autor" type="text" placeholder="Autor"
-             class="w-full p-2 border rounded" required />
-      <input v-model.number="paginas" type="number" placeholder="Páginas"
-             class="w-full p-2 border rounded" required />
-      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-        Guardar
-      </button>
-    </form>
+  <div class="flex justify-center items-center min-h-screen bg-gray-50 px-4">
+    <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md border border-gray-100">
+      <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">
+        Agregar nuevo libro
+      </h2>
+
+      <form @submit.prevent="agregarLibro" class="space-y-5">
+        <div>
+          <label class="block text-gray-700 font-medium mb-1">ISB</label>
+          <input v-model="isb" type="text" placeholder="Ej: 978-3-16-148410-0"
+            class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            required />
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-medium mb-1">Título</label>
+          <input v-model="titulo" type="text" placeholder="Título del libro"
+            class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            required />
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-medium mb-1">Autor</label>
+          <input v-model="autor" type="text" placeholder="Autor del libro"
+            class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            required />
+        </div>
+
+        <div>
+          <label class="block text-gray-700 font-medium mb-1">Páginas</label>
+          <input v-model.number="paginas" type="number" placeholder="Cantidad de páginas" min="1"
+            class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            required />
+        </div>
+
+        <button type="submit"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl shadow-md transition-all">
+          Guardar libro
+        </button>
+      </form>
+    </div>
   </div>
 </template>

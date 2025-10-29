@@ -1,23 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Dashboard from '../pages/Dashboard.vue'
-import Libros from '../pages/Libros.vue'
-import NuevoLibro from '../pages/NuevoLibro.vue'
-
+import DashboardPage from '@/pages/DashboardPage.vue'
+import LibrosList from '@/pages/LibrosList.vue'
+import LibrosForm from '@/pages/LibrosForm.vue'
 
 const routes = [
   {
     path: '/',
-    component: Dashboard,
+    component: DashboardPage,
     children: [
-      { path: '', name: 'home', component: Libros },
-      { path: 'libros', name: 'libros', component: Libros },
-      { path: 'libros/nuevo', name: 'nuevo-libro', component: NuevoLibro },
+      { path: 'libros', component: LibrosList },
+      { path: 'libros/nuevo', component: LibrosForm },
     ],
   },
 ]
 
-
-export const router = createRouter({
+const router = createRouter({
   history: createWebHistory(),
   routes,
 })
+
+export default router
